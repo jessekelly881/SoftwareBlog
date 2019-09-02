@@ -1,0 +1,22 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Jesse's Blog</title>
+        <link rel="stylesheet" href="{{site.url}}/style.css">
+    </head>
+    <body>
+      {% for post in site.posts %}
+
+        <article>
+          <a href={{post.url}}><h2>{{post.title}}</h2></a>
+          <small class="date">{{ post.date | date: '%B %d, %Y' }}</small>
+          <p class="article-body">{{ post.excerpt }}</p>
+        </article>
+
+      {% endfor %}
+    </body>
+</html>
