@@ -1,0 +1,49 @@
+body{
+    background: url("/bg.png") top left repeat;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: gray;
+}
+
+article > h3{
+    margin-bottom: 5px;
+}
+
+.article-body{
+    padding-top: 10px;
+}
+
+nav{
+    padding: 5px 10px;
+}
+
+nav > a, article > a{
+    text-decoration:none;
+    color:inherit;
+}
+
+h1{font-size: 25px;}
+h2{font-size: 15.5px;}
+h3{font-size: 9.5px;}
+
+/* Large Screens */
+@media only screen and (min-width: 500px)
+{
+    article{
+        padding: 5vh 20vw;
+    }
+
+}
+
+
+/* Small Screens */
+@media only screen and (max-width: 500px)
+{
+    article{
+        padding: 5vh 5vw;
+    }
+}
