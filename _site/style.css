@@ -1,5 +1,5 @@
 body{
-    background: url("/bg.png") top left repeat;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman"
 }
 
 footer{
@@ -29,6 +29,20 @@ nav > a, article > a{
 h1{font-size: 25px;}
 h2{font-size: 15.5px;}
 h3{font-size: 9.5px;}
+
+h1, h2, h3{
+    color: #222;
+}
+p{
+    color: #444;
+}
+
+blockquote{
+    font-family : Baskerville, Georgia, serif;
+    font-style : italic;
+    font-size : 28px;
+    text-shadow : 0 1px 1px rgba(255, 255, 255, 0.5);
+}
 
 /* Large Screens */
 @media only screen and (min-width: 500px)
