@@ -29,7 +29,7 @@ article > h3{
 }
 
 .article-body{
-    padding-top: 5px;
+    padding-top: 2vh;
 }
 
 
@@ -72,10 +72,10 @@ nav .link{
 }
 
 /* Large Screens */
-@media only screen and (min-width: 500px)
+@media only screen and (min-width: 750px)
 {
     nav{
-       padding: 20px 25px;
+       padding: 20px 10vw;
     }
 
     article{
@@ -86,10 +86,10 @@ nav .link{
 
 
 /* Small Screens */
-@media only screen and (max-width: 500px)
+@media only screen and (max-width: 750px)
 {
     nav{
-       padding: 5vh 5vw;
+       padding: 20px 5vw;
     }
 
     article{
