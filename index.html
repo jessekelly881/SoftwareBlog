@@ -12,8 +12,12 @@
       {% for post in site.posts %}
 
         <article>
-          <a href={{post.url}}><h2>{{post.title}}</h2></a>
-          <small class="date">{{ post.date | date: '%B %d, %Y' }}</small>
+          <a href={{post.url}}><h1>{{post.title}}</h1></a>
+          {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+          <br/>
+          <small>{{ post.date | date: '%B %d, %Y' }}</small>
           <p class="article-body">{{ post.excerpt }}</p>
         </article>
 

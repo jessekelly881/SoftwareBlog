@@ -21,3 +21,5 @@ And in general you would be right. But global state is very convenient in most c
 and I am sure I'm not the only one who has been tempted to use global state in my projects.
 
 ## Redux makes global state safe.
+
+Redux lets you have your cake and eat it too. Redux allows you to use global state in your project. But it makes you do so in a safe way.
