@@ -1,3 +1,5 @@
+@import url(friendly.css);
+
 body{
   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman"
 
@@ -69,6 +71,10 @@ nav{
 
 nav .link{
     float: right;
+}
+
+code{
+    font-family: Times New Roman;
 }
 
 /* Large Screens */
