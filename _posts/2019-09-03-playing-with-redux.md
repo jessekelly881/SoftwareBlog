@@ -24,6 +24,41 @@ and I am sure I'm not the only one who has been tempted to use global state in m
 
 Redux lets you have your cake and eat it too. Redux allows you to use global state in your project. But it makes you do so in a safe way.
 
-```javascript
-const x = 2;
+## Installing redux.
+Before we jump into any code we need to start a project and install redux.
+
+**Side note:** this project assumes that you are using linux(or possibly mac) because, well, this is what I'm using and I can't be bothered to install windows just to try this. If you aren't using linux I highly recommend you check it out. Its fantastic!
+
+Lets start by creating a node project.
+
+```bash
+mkdir ReduxTest
+cd ReduxTest
+npm init -y
+```
+
+And now lets install redux
+
+```bash
+npm install --save redux
+```
+
+## Setting up redux.
+**Btw:** Because this is an introduction and I don't want to confuse you, we are going to use redux without react, or any other framework. Although redux was origionally built with react in mind they are independent and can be used seperately.
+
+Now that we have redux installed in our project lets setup up some basic boilerplate code. Lets create a folder named app and two files, index.html and index.js.
+
+
+```bash
+mkdir app
+cd app
+touch index.html
+touch index.js
+```
+Open up the index.html file in your text viewer of choice. I prefer emacs but, really, it doesn't matter.
+
+In our index.html file we are goint to add 2 lines of html.
+
+```html
+
 ```
