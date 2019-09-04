@@ -2,10 +2,10 @@
 title: Playing with redux. A gentle introduction
 layout: posts/default
 copyright_year: 2019
-tags: [react, redux]
+tags: [redux, js]
 ---
 
-I have been learning redux recently. Which means that I have been doing a lot of playing around with it. Throughout my adventures with redux I have learned a few things that I would like to share.
+I have been learning [redux](https://amzn.to/2LuYILn){:target="_blank"} recently. Which means that I have been doing a lot of playing around with it. Throughout my adventures with redux I have learned a few things that I would like to share.
 
 ## What is redux?
 
@@ -55,7 +55,7 @@ cd app
 touch index.html
 touch index.js
 ```
-Open up the index.html file in your text viewer of choice. I prefer emacs but, really, it doesn't matter.
+Open up the index.html file in your text viewer of choice. I prefer [emacs](https://amzn.to/2MV29xN){:target="_blank"} but, really, it doesn't matter.
 
 In our index.html file we are goint to add 2 lines of html.
 

@@ -55,6 +55,11 @@ p{
     color: #444;
 }
 
+article > p > a{
+    color: #89cff0;
+    text-decoration: none;
+}
+
 blockquote > p{
     text-align: none;
     font-family : Baskerville, Georgia, serif;
