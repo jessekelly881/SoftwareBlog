@@ -71,6 +71,13 @@ p{
     color: #444;
 }
 
+nav .name{
+    font-family : Baskerville, Georgia, serif;
+    font-style : italic;
+    font-size : 30px;
+    padding-left: 10px;
+}
+
 blockquote > p{
     text-align: none;
     font-family : Baskerville, Georgia, serif;
