@@ -1,26 +1,17 @@
 ---
+layout: pages/default
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Jesse's Blog</title>
-        {% include header.html %}
-    </head>
-    <body>
-      {% for post in site.posts %}
+{% for post in site.posts %}
 
-        <article>
-          <a href={{post.url}}><h1>{{post.title}}</h1></a>
-          {% for tag in post.tags %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
-          <br/>
-          <small>{{ post.date | date: '%B %d, %Y' }}</small>
-          <p class="article-body">{{ post.excerpt }}</p>
-        </article>
+<article>
+    <a href={{post.url}}><h1>{{post.title}}</h1></a>
+    {% for tag in post.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+    <br/>
+    <small>{{ post.date | date: '%B %d, %Y' }}</small>
+    <p class="article-body">{{ post.excerpt }}</p>
+</article>
 
-      {% endfor %}
-    </body>
-</html>
+{% endfor %}

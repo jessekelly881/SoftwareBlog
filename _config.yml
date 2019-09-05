@@ -1,6 +1,8 @@
 url: http://jesseblog.surge.sh
 highlighter: rouge
 
+title: Jesse's Tech Blog
+
 plugins:
   - jekyll-seo-tag
 
