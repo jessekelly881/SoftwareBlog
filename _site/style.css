@@ -1,5 +1,17 @@
 @import url(friendly.css);
 
+.face{
+    display: inline;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid #777;
+    background-color: #777;
+    vertical-align:middle;
+    line-height: 100px;
+    float: left;
+
+}
+
 body{
   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman"
 
@@ -70,10 +82,12 @@ blockquote > p{
 nav{
     color: #444;
     display: block;
-    justify-content: space-around;
+    vertical-align:middle;
+    line-height: 50px;
 }
 
 nav .link{
+    line-height: 50px;
     float: right;
 }
 
