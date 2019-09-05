@@ -1,2 +1,13 @@
 url: http://jesseblog.surge.sh
 highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "posts/default"

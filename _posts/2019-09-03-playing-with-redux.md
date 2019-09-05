@@ -1,6 +1,5 @@
 ---
 title: Playing with redux. A gentle introduction
-layout: posts/default
 copyright_year: 2019
 tags: [redux, js]
 ---
@@ -220,12 +219,14 @@ store.subscribe(() =>{
 })
 ```
 
-Running
+### Run it!
+
+If we run
 
 ```bash
 parcel app/index.html
 ```
 
-again and refreshing our browser we see the page load and a second later we get a popup saying "1".
+again and refresh our browser we see the page load and a second later we get a popup saying "1".
 
 Congratulations! You have built your first project using redux. It wasn't that bad was it?
