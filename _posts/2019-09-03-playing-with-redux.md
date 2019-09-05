@@ -37,11 +37,13 @@ cd ReduxTest
 npm init -y
 ```
 
-And now lets install redux
+And now lets install redux. We will also be installing pracel. It's not strictly necesssary, but it makes things easier.
 
 ```bash
 npm install --save redux
+npm install -g parcel
 ```
+**Side note:** we are installing parcel globally here. You might need to do this with using sudo. Or you could install parcel to the project only but you would have to access it through an npm script.
 
 ## Setting up redux.
 **Btw:** Because this is an introduction and I don't want to confuse you, we are going to use redux without react, or any other framework. Although redux was origionally built with react in mind they are independent and can be used seperately.
@@ -57,8 +59,10 @@ touch index.js
 ```
 Open up the index.html file in your text viewer of choice. I prefer [emacs](https://amzn.to/2MV29xN){:target="_blank"} but, really, it doesn't matter.
 
-In our index.html file we are goint to add 2 lines of html.
+In our index.html we are only going to add one line of html.
 
 ```html
-
+<script type="text/javascript" src="index.js"></script>
 ```
+
+The rest of our codeing will take place in the index.js file.

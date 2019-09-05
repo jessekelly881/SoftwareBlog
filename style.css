@@ -18,6 +18,10 @@ body{
 
 }
 
+p > a{
+    color: #89cff0;
+    text-decoration: none;
+}
 
 footer{
     width: 100%;
