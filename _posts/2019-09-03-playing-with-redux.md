@@ -59,10 +59,173 @@ touch index.js
 ```
 Open up the index.html file in your text viewer of choice. I prefer [emacs](https://amzn.to/2MV29xN){:target="_blank"} but, really, it doesn't matter.
 
-In our index.html we are only going to add one line of html.
+In our index.html we will add the following code:
 
 ```html
-<script type="text/javascript" src="index.js"></script>
+<html>
+<body>
+  <script src="./index.js">
+  </script>
+</body>
+</html>
 ```
 
 The rest of our codeing will take place in the index.js file.
+
+### Import redux
+
+Lets get started by importing redux into our js file.
+
+**Btw,** we are able to import redux this way because we are using parcel. You could also use webpack but it requires more setup.
+
+```javascript
+import { createStore } from 'redux'
+```
+
+### Test that everything is working
+
+Now that we have imported redux lets make sure that everything is working as it should. Run
+
+```bash
+parcel app/index.html
+```
+
+and point your browser to localhost:4000. You should see a blank page. How exciting! Well, we haven't actually done anything yet. What did you expect?
+
+Now that we have imported redux into our project lets talk a little bit about how redux works.
+
+### Reducer
+
+In order to get started with redux we need to create a _reducer_. You are probably asking: what is a reducer?
+
+> A reducer is just a function
+
+A reducer is just a function that takes 2 arguments. The first is the state(this is just the global variable that we talked about earlier) and the second is called the action(we will talk about this later).
+
+**Btw,** a reducer is named after the Javascript function Array.prototype.reduce() and works similarly.
+
+So, lets write our reducer.
+
+```javascript
+const INC = "INC"
+
+function counter(store=0, action){
+    switch(action.type){
+    case INC:
+        return store + 1;
+    default:
+      return store
+    }
+}
+```
+
+### Creating a store
+
+```javascript
+const store = createStore(counter);
+```
+
+### Actions
+> Actions are just javascript objects that have a field named type.
+
+For example:
+
+```javascript
+{type: "INC"}
+```
+
+We are going to create a function called incAction that returns our action.
+
+```javascript
+function incAction(){
+    return {type: INC}
+}
+```
+
+Pretty simple right?
+
+### Dispatching an action
+
+Now that we have created our action we need to tell redux to do something with our action.
+
+This is as easy as calling
+
+```javascript
+store.dispatch(incAction());
+```
+
+Remember incAction() just returns {type: "INC"} so we could also write this code as:
+
+```javascript
+store.dispatch({type: "INC"});
+```
+
+For our project we will wrap our dispatch code in a setTimeout with a 1 second delay.
+```javascript
+setTimeout( ()=> {
+    store.dispatch(incAction());
+}, 1000)
+```
+
+### Subscribing
+
+So, we have set the value of our state. Now lets do something with it. Thankfully, reading state is easy in redux and can be done with only one line of code:
+
+```javascript
+const s = store.getState();
+```
+
+While this is useful, we are going to go one step further. Instead of accessing state directly we are going to ask redux to tell us when state changes. To do this we need to use redux's .subscribe method. Here is the code:
+
+```javascript
+store.subscribe(() =>{
+    const s = store.getState();
+    alert(s);
+})
+```
+
+Whenever our store changes redux will call our function that gets the current state and alerts it to the screen.
+
+### The code
+
+If you followed everything we just did then you have successfully implimented most major parts of redux in just 27 lines of code. Not bad for a days work.
+
+```javascript
+import { createStore } from 'redux'
+
+const INC = "INC"
+
+function incAction(){
+    return {type: INC}
+}
+
+function counter(store=0, action){
+    switch(action.type){
+    case INC:
+        return store + 1;
+    default:
+      return store
+    }
+}
+
+const store = createStore(counter);
+
+setTimeout( ()=> {
+    store.dispatch(incAction());
+}, 1000)
+
+store.subscribe(() =>{
+    const s = store.getState();
+    alert(s);
+})
+```
+
+Running
+
+```bash
+parcel app/index.html
+```
+
+again and refreshing our browser we see the page load and a second later we get a popup saying "1".
+
+Congratulations! You have built your first project using redux. It wasn't that bad was it?
