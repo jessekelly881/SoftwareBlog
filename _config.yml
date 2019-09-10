@@ -5,6 +5,7 @@ title: Jesse's Tech Blog
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 defaults:
   -
