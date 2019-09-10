@@ -1,0 +1,87 @@
+---
+title: Docker container randomly not starting.
+layout: posts/default
+copyright_year: 2019
+tags: [reactjs, js]
+---
+
+## Background
+
+I have been having some issues with docker in the last few days. At we use Django with dockerized Postgres and Redis images. We have a docker compose file that looks like this:
+
+```
+version: '2'
+services:
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+```
+
+I normally start the docker images by cd-ing into the directory and running
+
+```bash
+echo "redis\npostgres" | parallel docker-compose up -d {}
+```
+
+## The issue
+But recently, both of the contairs would start and then two seconds later the postgres image would crash. This, as I'm sure you can imaging, has been a huge issue for me.
+
+I even tried running the image outside of the docker config file.
+
+```bash
+docker run -d -p 5432:5432 postgres:latest
+```
+
+However, this was unsuccessful.
+
+
+# Finding a solution
+
+Thankfully, after a little digging I found a possible answer.
+
+I am a big fan of docker and I use it regularly when I want to test software so I have had a lot of docker containers filling up my root directory. I have my root directory attached to a different partition with limited space. So, docker filling up this partition has been an issue.
+
+I have been having issues with this directory being full but until now I haven't been able to find out what has been filling it up.
+
+> Docker stores everything in /var/lib/docker.
+
+Docker stores everything in /var/lib/docker. So, if you keep this directory on a seperate HD partition it fills up really quickly.
+
+## The solution I found
+
+So, to solve this I needed to clean up old docker contaiers.
+
+Conveniently, docker provides a single command that will clean up any resources — images, containers, volumes, and networks — that are dangling (not associated with a container). That command is
+
+```bash
+docker system prune
+```
+However, this command takes forever and is know to hang. So, Lets try something different.
+
+A second solution is to list all of the dangeling docker images on your system and remove them manually.
+
+To list all dangeling images on your system run
+
+```bash
+docker images -f dangling=true
+```
+This returns a table of all dangeling docker containers on your system.
+
+To remove the images grab the image id from this output(it looks something like c382984cc6d8). One you have the image id run
+
+```bash
+docker rmi <ImageID>
+```
+
+for each of these that you wish to remove.
+
+## Success!
+
+After running this command on each container that I wanted to remove I was finally able to start the postgres container. Hoperfully this will also solve my issue with running out of space in my root directory.
